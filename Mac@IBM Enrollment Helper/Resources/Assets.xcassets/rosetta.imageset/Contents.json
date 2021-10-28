@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "Rosetta_2_icon.pdf",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

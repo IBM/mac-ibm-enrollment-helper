@@ -1,0 +1,61 @@
+/* 
+  Localizable.strings
+  Mac@IBM Enrollment Helper
+
+  Created by Simone Martorelli on 07/12/2020.
+  Copyright © 2021 IBM Inc. All rights reserved
+  SPDX-License-Identifier: Apache2.0
+*/
+
+// MARK: - Welcome page
+"welcome_page_title" = "Welcome to <COMPANY NAME>";
+"welcome_page_body" = "Let's get your Mac set up!";
+
+// MARK: - Rosetta page
+"rosetta_page_title" = "Installation of Rosetta 2";
+"rosetta_page_body" = "Rosetta is a translation process that allows users to run apps that contain x86_64 instructions on Apple silicon. Rosetta is meant to ease the transition to Apple silicon, giving to developers the time to create a universal binary for your Mac.";
+"rosetta_page_terms_disclaimer_body" = "By clicking on \"Install Rosetta 2\" you agree to the terms of the ";
+"rosetta_page_terms_disclaimer_button" = "software license agreement";
+"rosetta_page_install_button" = "Install Rosetta 2";
+"rosetta_page_install_status_success" = "Rosetta 2 successfully installed";
+"rosetta_page_install_status_fail" = "Failed to install Rosetta 2. Check your internet connection and try again.";
+"rosetta_page_install_status_progress" = "Installation of Rosetta 2 in progres...";
+
+// MARK: - Profile installation page
+"profile_installation_page_button" = "Open System Preferences";
+"profile_installation_page_body" = "To continue with enrollment, open System Preferences below and select \"Install\" for the <MANAGEMENT PROFILE NAME>";
+"profile_installation_page_alert_title" = "Unable to verify profile installation";
+"profile_installation_page_alert_informative_text" = "Please make sure you've installed in \"System preferences\" -> \"Profiles\" the downloaded configuration profile and then click \"Continue\".";
+"profile_installation_page_alert_button" = "Continue";
+"profile_installation_page_retry_label" = "Don’t see the Install option in System Preferences?";
+"profile_installation_page_retry_button" = "Try Again";
+"profile_installation_page_restart_label" = "If the installation option is still missing, this is caused by a known issue with macOS. Click “Start Over” to go to the beginning of the enrollment process.";
+"profile_installation_page_restart_button" = "Start Over";
+
+// MARK: - Waiting page
+"waiting_page_title" = "Enrollment in progress...";
+"waiting_page_body" = "Your Mac is being registered with the system. The enrollment configuration progress may take up to 20 minutes to display.";
+"waiting_page_alert_message" = "There was an issue detecting the status of the configuration progress.";
+"waiting_page_alert_informative_text" = "Please contact the <HELP>.";
+"waiting_page_alert_button" = "Quit";
+
+// MARK: - Error occured alert
+"error_alert_title" = "An error occurred";
+"error_alert_informative_text" = "Please start over the process. If the error persists contact the <HELP>.";
+"error_alert_button" = "Start over";
+
+// MARK: - Network problem warning alert
+"warning_alert_title" = "Warning";
+"warning_alert_informative_text" = "We encountered some network problems. Please check your internet connection and then hit Continue.";
+"warning_alert_button" = "Continue";
+
+// MARK: - Old app problem warning alert
+"old_app_warning_alert_title" = "Attention";
+"old_app_warning_alert_informative_text" = "<APP NAME> is out of date. Click Go to be redirected to the download page of the latest version.";
+"old_app_warning_alert_button" = "Go";
+
+// MARK: - Old app problem warning alert
+"failed_check_warning_alert_title" = "Attention";
+"failed_check_warning_alert_informative_text" = "Unable to verify <APP NAME>. Click Download Latest to be redirected to the download page and restart the process.";
+"failed_check_warning_alert_button_continue" = "Continue";
+"failed_check_warning_alert_button_check" = "Download Latest";

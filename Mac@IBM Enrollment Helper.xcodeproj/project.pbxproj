@@ -1,0 +1,557 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 54;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B9167FBB270747A000275CEA /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9167FBA270747A000275CEA /* EndPoint.swift */; };
+		B9167FBE270C439F00275CEA /* URLSession-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9167FBD270C439E00275CEA /* URLSession-Extension.swift */; };
+		B95C7B06270DAE5900C2FD20 /* ArtifactoryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95C7B05270DAE5900C2FD20 /* ArtifactoryResponse.swift */; };
+		B96387EC26B1D1DA00E19204 /* Secrets.swift.gyb in Resources */ = {isa = PBXBuildFile; fileRef = B96387EB26B1D1DA00E19204 /* Secrets.swift.gyb */; };
+		B96387F026B1D47600E19204 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96387EF26B1D47600E19204 /* Secrets.swift */; };
+		B96CD3F9257E21BE00302585 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96CD3F8257E21BE00302585 /* AppDelegate.swift */; };
+		B96CD3FB257E21BE00302585 /* RosettaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96CD3FA257E21BE00302585 /* RosettaViewController.swift */; };
+		B96CD3FD257E21C700302585 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B96CD3FC257E21C700302585 /* Assets.xcassets */; };
+		B96CD400257E21C700302585 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B96CD3FE257E21C700302585 /* Main.storyboard */; };
+		B96CD43F257E2B9500302585 /* LoginAndDownloadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96CD43E257E2B9500302585 /* LoginAndDownloadViewController.swift */; };
+		B96CD444257E2D3300302585 /* ProfileInstallationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96CD443257E2D3300302585 /* ProfileInstallationViewController.swift */; };
+		B96CD449257E2D9500302585 /* WaitingEnrollmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96CD448257E2D9500302585 /* WaitingEnrollmentViewController.swift */; };
+		B96CD44E257E86DF00302585 /* WelcomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96CD44D257E86DF00302585 /* WelcomePageViewController.swift */; };
+		B96CD453257E94C600302585 /* SubViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96CD452257E94C600302585 /* SubViewController.swift */; };
+		B96CD459257E95E600302585 /* CrossfadeStoryboardSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96CD458257E95E600302585 /* CrossfadeStoryboardSegue.swift */; };
+		B96CD466257E9DDA00302585 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B96CD468257E9DDA00302585 /* Localizable.strings */; };
+		B96CD46E257E9EE800302585 /* String-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96CD46D257E9EE800302585 /* String-Extension.swift */; };
+		B96CD49325812BA200302585 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96CD49225812BA200302585 /* Environment.swift */; };
+		B96CD49E25825EF700302585 /* EnrollmentProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96CD49A25825EF700302585 /* EnrollmentProfile.swift */; };
+		B96CD4A025825EF700302585 /* ComputerInvitationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96CD49C25825EF700302585 /* ComputerInvitationResponse.swift */; };
+		B96CD4A825825F1D00302585 /* RestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96CD4A625825F1D00302585 /* RestClient.swift */; };
+		B96CD4A925825F1D00302585 /* CMSDecoder-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96CD4A725825F1D00302585 /* CMSDecoder-Extension.swift */; };
+		B9919FFB2655069500FB31D6 /* WKWebView-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9919FFA2655069500FB31D6 /* WKWebView-Extension.swift */; };
+		B9BB084A25827201006F7F91 /* HelperError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BB084925827201006F7F91 /* HelperError.swift */; };
+		B9C0752C25FFD0FA0039FDF4 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9C0752425FF8CAF0039FDF4 /* WebKit.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		B9167FBA270747A000275CEA /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
+		B9167FBD270C439E00275CEA /* URLSession-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession-Extension.swift"; sourceTree = "<group>"; };
+		B95C7B05270DAE5900C2FD20 /* ArtifactoryResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtifactoryResponse.swift; sourceTree = "<group>"; };
+		B96387EB26B1D1DA00E19204 /* Secrets.swift.gyb */ = {isa = PBXFileReference; lastKnownFileType = text; path = Secrets.swift.gyb; sourceTree = "<group>"; };
+		B96387EF26B1D47600E19204 /* Secrets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
+		B96CD3F5257E21BE00302585 /* Mac@IBM Enrollment Helper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mac@IBM Enrollment Helper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B96CD3F8257E21BE00302585 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B96CD3FA257E21BE00302585 /* RosettaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RosettaViewController.swift; sourceTree = "<group>"; };
+		B96CD3FC257E21C700302585 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B96CD3FF257E21C700302585 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B96CD401257E21C700302585 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B96CD402257E21C700302585 /* Mac_IBM_Enrollment_Helper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Mac_IBM_Enrollment_Helper.entitlements; sourceTree = "<group>"; };
+		B96CD43E257E2B9500302585 /* LoginAndDownloadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAndDownloadViewController.swift; sourceTree = "<group>"; };
+		B96CD443257E2D3300302585 /* ProfileInstallationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInstallationViewController.swift; sourceTree = "<group>"; };
+		B96CD448257E2D9500302585 /* WaitingEnrollmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingEnrollmentViewController.swift; sourceTree = "<group>"; };
+		B96CD44D257E86DF00302585 /* WelcomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePageViewController.swift; sourceTree = "<group>"; };
+		B96CD452257E94C600302585 /* SubViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubViewController.swift; sourceTree = "<group>"; };
+		B96CD458257E95E600302585 /* CrossfadeStoryboardSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossfadeStoryboardSegue.swift; sourceTree = "<group>"; };
+		B96CD467257E9DDA00302585 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B96CD46D257E9EE800302585 /* String-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String-Extension.swift"; sourceTree = "<group>"; };
+		B96CD49225812BA200302585 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		B96CD49A25825EF700302585 /* EnrollmentProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnrollmentProfile.swift; sourceTree = "<group>"; };
+		B96CD49C25825EF700302585 /* ComputerInvitationResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComputerInvitationResponse.swift; sourceTree = "<group>"; };
+		B96CD4A625825F1D00302585 /* RestClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestClient.swift; sourceTree = "<group>"; };
+		B96CD4A725825F1D00302585 /* CMSDecoder-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CMSDecoder-Extension.swift"; sourceTree = "<group>"; };
+		B9919FFA2655069500FB31D6 /* WKWebView-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WKWebView-Extension.swift"; sourceTree = "<group>"; };
+		B9BB084925827201006F7F91 /* HelperError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperError.swift; sourceTree = "<group>"; };
+		B9C0752425FF8CAF0039FDF4 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B96CD3F2257E21BE00302585 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B9C0752C25FFD0FA0039FDF4 /* WebKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B9167FB92707472400275CEA /* Gyb */ = {
+			isa = PBXGroup;
+			children = (
+				B96387EB26B1D1DA00E19204 /* Secrets.swift.gyb */,
+				B96387EF26B1D47600E19204 /* Secrets.swift */,
+			);
+			path = Gyb;
+			sourceTree = "<group>";
+		};
+		B96CD3EC257E21BD00302585 = {
+			isa = PBXGroup;
+			children = (
+				B96CD3F7257E21BE00302585 /* Mac@IBM Enrollment Helper */,
+				B96CD3F6257E21BE00302585 /* Products */,
+				B9C0752325FF8CAE0039FDF4 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		B96CD3F6257E21BE00302585 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B96CD3F5257E21BE00302585 /* Mac@IBM Enrollment Helper.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B96CD3F7257E21BE00302585 /* Mac@IBM Enrollment Helper */ = {
+			isa = PBXGroup;
+			children = (
+				B96CD3F8257E21BE00302585 /* AppDelegate.swift */,
+				B96CD49225812BA200302585 /* Environment.swift */,
+				B96CD46C257E9ECE00302585 /* Extension */,
+				B96CD4A525825F1D00302585 /* Controllers */,
+				B96CD457257E95CA00302585 /* Model */,
+				B96CD43A257E2B2800302585 /* ViewControllers */,
+				B96CD3FE257E21C700302585 /* Main.storyboard */,
+				B96CD401257E21C700302585 /* Info.plist */,
+				B96CD465257E9DCE00302585 /* Resources */,
+				B96CD402257E21C700302585 /* Mac_IBM_Enrollment_Helper.entitlements */,
+			);
+			path = "Mac@IBM Enrollment Helper";
+			sourceTree = "<group>";
+		};
+		B96CD43A257E2B2800302585 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				B96CD3FA257E21BE00302585 /* RosettaViewController.swift */,
+				B96CD44D257E86DF00302585 /* WelcomePageViewController.swift */,
+				B96CD43E257E2B9500302585 /* LoginAndDownloadViewController.swift */,
+				B96CD443257E2D3300302585 /* ProfileInstallationViewController.swift */,
+				B96CD448257E2D9500302585 /* WaitingEnrollmentViewController.swift */,
+				B96CD452257E94C600302585 /* SubViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		B96CD457257E95CA00302585 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B9167FB92707472400275CEA /* Gyb */,
+				B96CD458257E95E600302585 /* CrossfadeStoryboardSegue.swift */,
+				B96CD49A25825EF700302585 /* EnrollmentProfile.swift */,
+				B9BB084925827201006F7F91 /* HelperError.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B96CD465257E9DCE00302585 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B96CD3FC257E21C700302585 /* Assets.xcassets */,
+				B96CD468257E9DDA00302585 /* Localizable.strings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B96CD46C257E9ECE00302585 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				B96CD46D257E9EE800302585 /* String-Extension.swift */,
+				B9167FBD270C439E00275CEA /* URLSession-Extension.swift */,
+				B9919FFA2655069500FB31D6 /* WKWebView-Extension.swift */,
+				B96CD4A725825F1D00302585 /* CMSDecoder-Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		B96CD4A525825F1D00302585 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B96CD4B92582621600302585 /* RestClient */,
+			);
+			name = Controllers;
+			path = "Mac@IBM Enrollment Helper/Controllers";
+			sourceTree = SOURCE_ROOT;
+		};
+		B96CD4B92582621600302585 /* RestClient */ = {
+			isa = PBXGroup;
+			children = (
+				B9167FBA270747A000275CEA /* EndPoint.swift */,
+				B96CD4A625825F1D00302585 /* RestClient.swift */,
+				B96CD4BD2582621E00302585 /* Model */,
+			);
+			path = RestClient;
+			sourceTree = "<group>";
+		};
+		B96CD4BD2582621E00302585 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B96CD49C25825EF700302585 /* ComputerInvitationResponse.swift */,
+				B95C7B05270DAE5900C2FD20 /* ArtifactoryResponse.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B9C0752325FF8CAE0039FDF4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B9C0752425FF8CAF0039FDF4 /* WebKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B96CD3F4257E21BE00302585 /* Mac@IBM Enrollment Helper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B96CD41B257E21C700302585 /* Build configuration list for PBXNativeTarget "Mac@IBM Enrollment Helper" */;
+			buildPhases = (
+				B96387EA26B1D1A100E19204 /* ShellScript */,
+				B96CD3F1257E21BE00302585 /* Sources */,
+				B96CD3F2257E21BE00302585 /* Frameworks */,
+				B96CD3F3257E21BE00302585 /* Resources */,
+				B96CD42D257E221A00302585 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Mac@IBM Enrollment Helper";
+			productName = "Mac@IBM Enrollment Helper";
+			productReference = B96CD3F5257E21BE00302585 /* Mac@IBM Enrollment Helper.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B96CD3ED257E21BD00302585 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1220;
+				LastUpgradeCheck = 1230;
+				ORGANIZATIONNAME = IBM;
+				TargetAttributes = {
+					B96CD3F4257E21BE00302585 = {
+						CreatedOnToolsVersion = 12.2;
+					};
+				};
+			};
+			buildConfigurationList = B96CD3F0257E21BD00302585 /* Build configuration list for PBXProject "Mac@IBM Enrollment Helper" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B96CD3EC257E21BD00302585;
+			productRefGroup = B96CD3F6257E21BE00302585 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B96CD3F4257E21BE00302585 /* Mac@IBM Enrollment Helper */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B96CD3F3257E21BE00302585 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B96CD3FD257E21C700302585 /* Assets.xcassets in Resources */,
+				B96387EC26B1D1DA00E19204 /* Secrets.swift.gyb in Resources */,
+				B96CD466257E9DDA00302585 /* Localizable.strings in Resources */,
+				B96CD400257E21C700302585 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B96387EA26B1D1A100E19204 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(PROJECT_DIR)/Mac@IBM Enrollment Helper/Model/Gyb/Secrets.swift.gyb",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(PROJECT_DIR)/Mac@IBM Enrollment Helper/Model/Gyb/Secrets.swift",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Checking if the shared secrets are already been set (ex. Jenkins builds) and if not load them from the keychain.\nif [ -z ${PROD_JSS_AUTH+x} ]; then\n    echo \"Loading secrets from Keychain\"\n    export TEST_JSS_AUTH=$(security find-generic-password -w -s EH_TEST_JSS_AUTH)\n    export QA_JSS_AUTH=$(security find-generic-password -w -s EH_QA_JSS_AUTH)\n    export PROD_JSS_AUTH=$(security find-generic-password -w -s EH_PROD_JSS_AUTH)\n    export ARTIFACTORY_API_KEY=$(security find-generic-password -w -s EH_ARTIFACTORY_API_KEY)\nfi\n\n# Creating .swift files from .gyb templates using the loaded secrets.\nfor INPUT_FILE in ${!SCRIPT_INPUT_FILE_*}; do\n    FILE=${!INPUT_FILE}\n    if [ ${FILE: -4} == \".gyb\" ]; then\n        \"${PROJECT_DIR}/Gyb/gyb\" --line-directive '' -o \"${FILE%.gyb}\" \"$FILE\"\n    fi\ndone\n";
+		};
+		B96CD42D257E221A00302585 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B96CD3F1257E21BE00302585 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B96CD444257E2D3300302585 /* ProfileInstallationViewController.swift in Sources */,
+				B96CD43F257E2B9500302585 /* LoginAndDownloadViewController.swift in Sources */,
+				B9919FFB2655069500FB31D6 /* WKWebView-Extension.swift in Sources */,
+				B96CD4A025825EF700302585 /* ComputerInvitationResponse.swift in Sources */,
+				B96CD4A925825F1D00302585 /* CMSDecoder-Extension.swift in Sources */,
+				B96CD453257E94C600302585 /* SubViewController.swift in Sources */,
+				B96CD3FB257E21BE00302585 /* RosettaViewController.swift in Sources */,
+				B96CD449257E2D9500302585 /* WaitingEnrollmentViewController.swift in Sources */,
+				B96CD49E25825EF700302585 /* EnrollmentProfile.swift in Sources */,
+				B96CD459257E95E600302585 /* CrossfadeStoryboardSegue.swift in Sources */,
+				B95C7B06270DAE5900C2FD20 /* ArtifactoryResponse.swift in Sources */,
+				B9167FBB270747A000275CEA /* EndPoint.swift in Sources */,
+				B9167FBE270C439F00275CEA /* URLSession-Extension.swift in Sources */,
+				B9BB084A25827201006F7F91 /* HelperError.swift in Sources */,
+				B96CD44E257E86DF00302585 /* WelcomePageViewController.swift in Sources */,
+				B96CD4A825825F1D00302585 /* RestClient.swift in Sources */,
+				B96CD3F9257E21BE00302585 /* AppDelegate.swift in Sources */,
+				B96CD46E257E9EE800302585 /* String-Extension.swift in Sources */,
+				B96387F026B1D47600E19204 /* Secrets.swift in Sources */,
+				B96CD49325812BA200302585 /* Environment.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		B96CD3FE257E21C700302585 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B96CD3FF257E21C700302585 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B96CD468257E9DDA00302585 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B96CD467257E9DDA00302585 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B96CD419257E21C700302585 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B96CD41A257E21C700302585 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		B96CD41C257E21C700302585 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Mac@IBM Enrollment Helper/Mac_IBM_Enrollment_Helper.entitlements";
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 39;
+				DEVELOPMENT_TEAM = Q7W47GFKL3;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = "Mac@IBM Enrollment Helper/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.3.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ibm.cio.be.Mac-IBM-Enrollment-Helper";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Debug;
+		};
+		B96CD41D257E21C700302585 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Mac@IBM Enrollment Helper/Mac_IBM_Enrollment_Helper.entitlements";
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 39;
+				DEVELOPMENT_TEAM = Q7W47GFKL3;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = "Mac@IBM Enrollment Helper/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.3.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ibm.cio.be.Mac-IBM-Enrollment-Helper";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B96CD3F0257E21BD00302585 /* Build configuration list for PBXProject "Mac@IBM Enrollment Helper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B96CD419257E21C700302585 /* Debug */,
+				B96CD41A257E21C700302585 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B96CD41B257E21C700302585 /* Build configuration list for PBXNativeTarget "Mac@IBM Enrollment Helper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B96CD41C257E21C700302585 /* Debug */,
+				B96CD41D257E21C700302585 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B96CD3ED257E21BD00302585 /* Project object */;
+}
