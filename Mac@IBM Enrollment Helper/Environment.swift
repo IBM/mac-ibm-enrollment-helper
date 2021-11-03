@@ -63,10 +63,14 @@ private struct Configuration {
     // MARK: - Default timeouts
     
     /// Timeout in seconds for the "profile installation" check
+    /// This timeout runs in background on the "Open system preference" page and when expired trigger an alert that
+    /// ask the user to install the profile in System Preferences, then it reset itself and restart in background.
     static let testDefaultCheckProfileTimeInterval: TimeInterval = 300
     static let qaDefaultCheckProfileTimeInterval: TimeInterval = 300
     static let prodDefaultCheckProfileTimeInterval: TimeInterval = 300
     /// Timeout in seconds for the "enrollment started" check
+    /// This timeout runs in background on the last page of the process and when expired make the app to check if the
+    /// Jamf binary is available on the user device, if so it runs the selfservice app and close the Enrollment Helper.
     static let testDefaultCheckEnrollmentStartedTimeInterval: TimeInterval = 1200
     static let qaDefaultCheckEnrollmentStartedTimeInterval: TimeInterval = 1200
     static let prodDefaultCheckEnrollmentStartedTimeInterval: TimeInterval = 1200
