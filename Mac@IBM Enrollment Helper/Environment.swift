@@ -15,16 +15,15 @@ private struct Configuration {
     
     // MARK: - Rosetta 2 Installation
     
-    /// Boolean value that define it to check Rosetta 2 installation on M1 device and so
-    /// to show the related installation page.
+    /// Boolean value that define if to check Rosetta 2 installation on M1 device and so to show the related installation page.
     static let testIgnoreRosettaInstallation: Bool = false
     static let qaIgnoreRosettaInstallation: Bool = false
     static let prodIgnoreRosettaInstallation: Bool = false
 
     // MARK: - Artifactory configuration for app version check
     
-    /// Boolean value that define if to run app version check on the welcome page or not.
-    /// If false you can avoid to set the other 'Artifcatory configuration' parameters.
+    /// Boolean value that defines whether to run the app version check on the welcome page or not.
+    /// If false you can ignore the other 'Artifcatory configuration' parameters.
     static let testIsAppVersionCheckEnabled: Bool = false
     static let qaIsAppVersionCheckEnabled: Bool = false
     static let prodIsAppVersionCheckEnabled: Bool = false
@@ -32,7 +31,7 @@ private struct Configuration {
     static let testRemoteFileName: String = ""
     static let qaRemoteFileName: String = ""
     static let prodRemoteFileName: String = ""
-    /// Artifactory folder urls
+    /// Artifactory folder URLs
     static let testArtifactoryURLString: String = "https://artifactory.folder.url"
     static let qaArtifactoryURLString: String = "https://artifactory.folder.url"
     static let prodArtifactoryURLString: String = "https://artifactory.folder.url"
@@ -43,7 +42,7 @@ private struct Configuration {
 
     // MARK: - Jamf configuration for profile download and installation check
     
-    /// The Jamf Pro Server base urls
+    /// The Jamf Pro Server base URLs
     static let testEnvURLString: String = "https://jss.url"
     static let qaEnvURLString: String = "https://jss.url"
     static let prodEnvURLString: String = "https://jss.url"
@@ -51,26 +50,26 @@ private struct Configuration {
     static let testDefaultProfileFileName: String = "enrollmentProfile.mobileconfig"
     static let qaDefaultProfileFileName: String = "enrollmentProfile.mobileconfig"
     static let prodDefaultProfileFileName: String = "enrollmentProfile.mobileconfig"
-    /// Selfservice app custom path
+    /// Self Service app custom path
     static let testAppStorePath: String = "/Applications/Some App Store.app"
     static let qaAppStorePath: String = "/Applications/Some App Store.app"
     static let prodAppStorePath: String = "/Applications/Some App Store.app"
-    /// Selfservice app standard url scheme
-    static let testAppStoreURL: String = "selfservice://"
-    static let qaAppStoreURL: String = "selfservice://"
-    static let prodAppStoreURL: String = "selfservice://"
+    /// Self Service app standard url scheme
+    static let testAppStoreURL: String = "jamfselfservice://"
+    static let qaAppStoreURL: String = "jamfselfservice://"
+    static let prodAppStoreURL: String = "jamfselfservice://"
     
     // MARK: - Default timeouts
     
-    /// Timeout in seconds for the "profile installation" check
-    /// This timeout runs in background on the "Open system preference" page and when expired trigger an alert that
-    /// ask the user to install the profile in System Preferences, then it reset itself and restart in background.
+    /// Timeout in seconds for the "Profile Installation" check.
+    /// This timeout runs in background on the "Open System Preference" page and when expired will trigger an alert that asks the user to install the profile in System Preferences.
+    /// It will then reset itself and restart in background.
     static let testDefaultCheckProfileTimeInterval: TimeInterval = 300
     static let qaDefaultCheckProfileTimeInterval: TimeInterval = 300
     static let prodDefaultCheckProfileTimeInterval: TimeInterval = 300
-    /// Timeout in seconds for the "enrollment started" check
-    /// This timeout runs in background on the last page of the process and when expired make the app to check if the
-    /// Jamf binary is available on the user device, if so it runs the selfservice app and close the Enrollment Helper.
+    /// Timeout in seconds for the "Enrollment Started" check.
+    /// This timeout runs in background on the last page of the process and when expired the app will check to see if the Jamf binary is available on the user device.
+    /// If so it launches the Self Service app and closes the Enrollment Helper.
     static let testDefaultCheckEnrollmentStartedTimeInterval: TimeInterval = 1200
     static let qaDefaultCheckEnrollmentStartedTimeInterval: TimeInterval = 1200
     static let prodDefaultCheckEnrollmentStartedTimeInterval: TimeInterval = 1200
