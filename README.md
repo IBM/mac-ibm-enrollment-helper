@@ -6,8 +6,10 @@
 ![License](https://img.shields.io/badge/license-Apache%202-blue)
 ![Swift version](https://img.shields.io/badge/swift-5-EA392B)
 ![Xcode version](https://img.shields.io/badge/xcode-13-1984E5)
+![Project version](https://img.shields.io/badge/version-1.3.0-bright%20green)  
+![macOS](https://img.shields.io/badge/os-macOS%20Catalina-green)  
+![macOS](https://img.shields.io/badge/os-macOS%20Big%20Sur-green)  
 ![macOS](https://img.shields.io/badge/os-macOS%20Monterey-green)
-![Project version](https://img.shields.io/badge/version-1.3.0-bright%20green)
 
 ## Scope
 
