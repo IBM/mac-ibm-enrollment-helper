@@ -56,6 +56,6 @@
 
 // MARK: - Old app problem warning alert
 "failed_check_warning_alert_title" = "Attention";
-"failed_check_warning_alert_informative_text" = "Unable to verify <APP NAME>. Click Download Latest to be redirected to the download page and restart the process.";
+"failed_check_warning_alert_informative_text" = "Unable to check for updates to <APP NAME>. Click Continue to move forward with the current version. Click Download Latest to be redirected to the download page and restart the process.";
 "failed_check_warning_alert_button_continue" = "Continue";
 "failed_check_warning_alert_button_check" = "Download Latest";
