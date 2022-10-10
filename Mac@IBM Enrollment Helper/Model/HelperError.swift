@@ -35,6 +35,7 @@ extension HelperError.Enums {
     enum ProfileError {
         case decoding(description: String)
         case store(description: String)
+        case deviceIsManaged
     }
 }
 
@@ -45,6 +46,8 @@ extension HelperError.Enums.ProfileError: LocalizedError {
             return "Failed to decode the profile: \(description)."
         case .store(let description):
             return "Failed to save configuration profile: \(description)."
+        case .deviceIsManaged:
+            return ""
         }
     }
 }

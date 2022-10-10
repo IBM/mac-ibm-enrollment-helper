@@ -6,6 +6,7 @@
 //  Copyright © 2021 IBM Inc. All rights reserved
 //  SPDX-License-Identifier: Apache2.0
 //
+//  swiftlint:disable function_body_length
 
 import Cocoa
 import os.log
@@ -17,6 +18,7 @@ final class WelcomePageViewController: NSViewController {
     enum AlertType {
         case error
         case warning
+        case deviceIsManaged
     }
     
     // MARK: - Constants
@@ -35,15 +37,17 @@ final class WelcomePageViewController: NSViewController {
     @IBOutlet weak var pageBody: NSTextField!
     @IBOutlet weak var bottomRightButton: NSButton!
     @IBOutlet weak var centerImageView: NSImageView!
-    var indicator: NSProgressIndicator!
+    @IBOutlet weak var indicator: NSProgressIndicator!
 
     // MARK: - Instance methods
     
     override func viewWillAppear() {
         super.viewWillAppear()
         self.setupLayout()
-        if Environment.current.isAppVersionCheckEnabled {
-            self.checkAppVersion()
+        if Environment.current.areStartupChecksEnabled {
+            self.runStartupChecks()
+        } else {
+            self.indicator.isHidden = true
         }
     }
     
@@ -53,27 +57,20 @@ final class WelcomePageViewController: NSViewController {
     private func setupLayout() {
         self.pageTitle.stringValue = "welcome_page_title".localized
         self.pageBody.stringValue = "welcome_page_body".localized
-        self.centerImageView.image = NSImage(named: "mac")!
+        self.centerImageView.image = NSImage(named: "mac_icon")!
     }
     
     /// This method get the current app version and compare it with the supported one it gets from the backend
     /// in order to redirect the user to the download page if the running app is not supported anymore.
-    private func checkAppVersion() {
-        bottomRightButton.isHidden = true
-        indicator = NSProgressIndicator(frame: bottomRightButton.frame)
-        indicator.translatesAutoresizingMaskIntoConstraints = false
-        indicator.style = .spinning
-        self.view.addSubview(indicator)
-        indicator.topAnchor.constraint(equalTo: bottomRightButton.topAnchor).isActive = true
-        indicator.bottomAnchor.constraint(equalTo: bottomRightButton.bottomAnchor).isActive = true
-        indicator.leadingAnchor.constraint(equalTo: bottomRightButton.leadingAnchor).isActive = true
-        indicator.trailingAnchor.constraint(equalTo: bottomRightButton.trailingAnchor).isActive = true
+    private func runStartupChecks() {
         DispatchQueue.main.async {
+            self.bottomRightButton.isHidden = true
             self.indicator.startAnimation(nil)
         }
+        // Checking App version
         RestClient.shared.getRemoteVersionInfo { response in
             guard let supportedVersionString = response.properties.minAllowedBuildNr.first,
-                    let supportedVersion = Int(supportedVersionString) else {
+                  let supportedVersion = Int(supportedVersionString) else {
                 self.handleError(.apiError(type: .noData))
                 return
             }
@@ -81,12 +78,31 @@ final class WelcomePageViewController: NSViewController {
                 self.handleError(.generic(type: .oldVersion))
                 return
             }
-            DispatchQueue.main.async {
-                self.indicator.isHidden = true
-                self.bottomRightButton.isHidden = false
+            // Checking the enrollment state
+            switch DeviceManagementState.current {
+            case .managedByOther, .managedByCompany:
+                self.handleError(.profileError(type: .deviceIsManaged))
+            case .unmanaged:
+                DispatchQueue.main.async {
+                    self.indicator.isHidden = true
+                    self.bottomRightButton.isHidden = false
+                }
             }
         } errorHandler: { error in
-            self.handleError(error)
+            // Checking the enrollment state
+            switch DeviceManagementState.current {
+            case .managedByOther, .managedByCompany:
+                self.handleError(.profileError(type: .deviceIsManaged))
+            case .unmanaged:
+                #if DEBUG
+                DispatchQueue.main.async {
+                    self.indicator.isHidden = true
+                    self.bottomRightButton.isHidden = false
+                }
+                #else
+                self.handleError(error)
+                #endif
+            }
         }
     }
     
@@ -123,18 +139,40 @@ final class WelcomePageViewController: NSViewController {
                                 self.bottomRightButton.isHidden = false
                             }
                         }
- 
+                        
                     }
+                case .deviceIsManaged:
+                    alert.messageText = DeviceManagementState.current.alertTitle
+                    alert.informativeText = DeviceManagementState.current.alertMessage
+                    alert.addButton(withTitle: DeviceManagementState.current.mainAlertButtonLabel)
+                    if let buttonLabel = DeviceManagementState.current.secondaryButtonLabel {
+                        alert.addButton(withTitle: buttonLabel)
+                    }
+                    action = { response in
+                        if response == .alertFirstButtonReturn {
+                            DeviceManagementState.current.mainAlertButtonAction()
+                        }
+                        if response == .alertSecondButtonReturn {
+                            DeviceManagementState.current.secondaryAlertbuttonAction()
+                        }
+                        DispatchQueue.main.async {
+                            self.indicator.isHidden = true
+                            self.bottomRightButton.isHidden = false
+                        }
+                    }
+                    
                 }
                 alert.alertStyle = .warning
                 alert.beginSheetModal(for: self.view.window!, completionHandler: action)
             }
         }
         switch error {
-        case .apiError(_), .profileError(_):
+        case .apiError:
             showAlert(for: .warning)
-        case .generic(_):
+        case .generic:
             showAlert(for: .error)
+        case .profileError:
+            showAlert(for: .deviceIsManaged)
         }
     }
 

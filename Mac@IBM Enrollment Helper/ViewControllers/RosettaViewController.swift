@@ -55,7 +55,7 @@ final class RosettaViewController: NSViewController {
     
     /// Setup the layou of the page.
     private func setupLayout() {
-        self.centerImageView.image = NSImage(named: "rosetta")!
+        self.centerImageView.image = NSImage(named: "rosetta_icon")!
         self.pageTitle.stringValue = "rosetta_page_title".localized
         self.pageBody.stringValue = "rosetta_page_body".localized
         let termsButtonAttributedString = NSMutableAttributedString(string: "rosetta_page_terms_disclaimer_button".localized)

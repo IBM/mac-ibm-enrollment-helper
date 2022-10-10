@@ -10,6 +10,7 @@
 
 import Cocoa
 import os.log
+import AVKit
 
 final class ProfileInstallationViewController: NSViewController {
 
@@ -29,6 +30,9 @@ final class ProfileInstallationViewController: NSViewController {
     @IBOutlet weak var centerImageView: NSImageView!
     @IBOutlet weak var retryButton: NSButton!
     @IBOutlet weak var retryLabel: NSTextField!
+    @IBOutlet weak var centerImageViewTop: NSLayoutConstraint!
+    @IBOutlet weak var centerImageViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var bottomLine: NSBox!
     
     var profile: ConfProfile?
     var profileLocation: URL?
@@ -36,6 +40,7 @@ final class ProfileInstallationViewController: NSViewController {
     private var jssTimer: Timer?
     private var retryTimer: Timer?
     private var timerExpired: Bool = false
+    private var videoPlayerView: AVPlayerView!
 
     // MARK: - Instance methods
 
@@ -66,24 +71,85 @@ final class ProfileInstallationViewController: NSViewController {
     }
 
     // MARK: - Private methods
+    
+    private func createLocalUrl(for filename: String, ofType: String) -> URL? {
+        let fileManager = FileManager.default
+        let cacheDirectory = fileManager.urls(for: .cachesDirectory, in: .userDomainMask)[0]
+        let url = cacheDirectory.appendingPathComponent("\(filename).\(ofType)")
+        
+        guard fileManager.fileExists(atPath: url.path) else {
+            guard let video = NSDataAsset(name: filename)  else { return nil }
+            fileManager.createFile(atPath: url.path, contents: video.data, attributes: nil)
+            return url
+        }
+        
+        return url
+    }
 
     /// Setup the layou of the page.
     private func setupLayout() {
-        self.pageBody.stringValue = "profile_installation_page_body".localized
-        self.systemPreferencesButton.title = "profile_installation_page_button".localized
         self.retryButton.isHidden = true
         self.retryLabel.isHidden = true
-        self.retryLabel.stringValue = "profile_installation_page_retry_label".localized
         self.retryButton.title = "profile_installation_page_retry_button".localized
         self.activityIndicator.startAnimation(nil)
-        self.centerImageView.image = NSImage(named: "settings_sample")!
+        let sampleVideoName: String = Utils.currentInterfaceStyle == .light ? "settings_sample_ventura_light" : "settings_sample_ventura_dark"
+        if #available(OSX 13, *) {
+            self.systemPreferencesButton.title = "profile_installation_page_button_ventura".localized
+            self.pageBody.stringValue = "profile_installation_page_body_ventura".localized
+            self.retryLabel.stringValue = "profile_installation_page_retry_label_ventura".localized
+            self.centerImageView.isHidden = true
+            guard let videoURL = createLocalUrl(for: sampleVideoName, ofType: "mov") else { return }
+            self.videoPlayerView = AVPlayerView(frame: self.centerImageView.frame)
+            let videoPlayer = AVPlayer(playerItem: AVPlayerItem(asset: AVAsset(url: videoURL)))
+            self.videoPlayerView.player = videoPlayer
+            self.videoPlayerView.controlsStyle = .none
+            self.videoPlayerView.showsTimecodes = false
+            self.videoPlayerView.showsFrameSteppingButtons = false
+            self.videoPlayerView.showsSharingServiceButton = false
+            self.videoPlayerView.showsFullScreenToggleButton = false
+            self.view.addSubview(self.videoPlayerView)
+            self.videoPlayerView.translatesAutoresizingMaskIntoConstraints = false
+            self.videoPlayerView.topAnchor.constraint(equalTo: self.pageBody.bottomAnchor, constant: 16).isActive = true
+            self.videoPlayerView.bottomAnchor.constraint(equalTo: self.bottomLine.topAnchor, constant: -16).isActive = true
+            self.videoPlayerView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: 0).isActive = true
+            if let videoResolution = resolutionForVideo(at: videoURL) {
+                let multiplier = videoResolution.width/videoResolution.height
+                self.videoPlayerView.widthAnchor.constraint(equalTo: self.videoPlayerView.heightAnchor, multiplier: multiplier).isActive = true
+            } else {
+                self.videoPlayerView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 40).isActive = true
+                self.videoPlayerView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -40).isActive = true
+            }
+            self.videoPlayerView.player?.playImmediately(atRate: 1.5)
+            NotificationCenter.default.addObserver(self, selector: #selector(itemDidFinishPlaying), name: .AVPlayerItemDidPlayToEndTime, object: nil)
+        } else {
+            self.systemPreferencesButton.title = "profile_installation_page_button".localized
+            self.pageBody.stringValue = "profile_installation_page_body".localized
+            self.retryLabel.stringValue = "profile_installation_page_retry_label".localized
+            self.centerImageView.image = NSImage(named: "settings_sample")!
+        }
+    }
+    
+    /// Get the resolution of the video.
+    /// - Parameter url: url of the video.
+    /// - Returns: the resolution of the video.
+    private func resolutionForVideo(at url: URL) -> CGSize? {
+        guard let track = AVURLAsset(url: url).tracks(withMediaType: AVMediaType.video).first else { return nil }
+        let size = track.naturalSize.applying(track.preferredTransform)
+        return CGSize(width: abs(size.width), height: abs(size.height))
+    }
+    
+    /// Replay the video in loop
+    @objc
+    private func itemDidFinishPlaying(_ notification: Notification) {
+        self.videoPlayerView.player?.seek(to: .zero)
+        self.videoPlayerView.player?.playImmediately(atRate: 1.5)
     }
     
     /// Check the profile installation using the invitation ID it got from the profile and Jamf APIs.
     private func checkForProfileInstallation() {
         // If in debug mode it goes directly to the next page.
         #if DEBUG
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(5)) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(30)) {
             self.performSegue(withIdentifier: "goToWaitingPage", sender: nil)
         }
         #else
@@ -171,11 +237,17 @@ final class ProfileInstallationViewController: NSViewController {
                 showAlert(with: "error_alert_informative_text".localized, type: .error)
             case .store:
                 showAlert(with: "error_alert_informative_text".localized, type: .error)
+            case .deviceIsManaged:
+                break
             }
         case .generic(let type):
             switch type {
             case .timeout, .oldVersion:
-                showAlert(with: "profile_installation_page_alert_informative_text".localized, type: .timeout)
+                if #available(OSX 13, *) {
+                    showAlert(with: "profile_installation_page_alert_informative_text_ventura".localized, type: .timeout)
+                } else {
+                    showAlert(with: "profile_installation_page_alert_informative_text".localized, type: .timeout)
+                }
             }
         }
     }

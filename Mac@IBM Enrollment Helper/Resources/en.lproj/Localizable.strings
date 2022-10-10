@@ -25,12 +25,18 @@
 "profile_installation_page_button" = "Open System Preferences";
 "profile_installation_page_body" = "To continue with enrollment, open System Preferences below and select \"Install\" for the <MANAGEMENT PROFILE NAME>";
 "profile_installation_page_alert_title" = "Unable to verify profile installation";
-"profile_installation_page_alert_informative_text" = "Please make sure you've installed in \"System preferences\" -> \"Profiles\" the downloaded configuration profile and then click \"Continue\".";
+"profile_installation_page_alert_informative_text" = "Please make sure you've installed in \"System Preferences\" -> \"Profiles\" the downloaded configuration profile and then click \"Continue\".";
 "profile_installation_page_alert_button" = "Continue";
 "profile_installation_page_retry_label" = "Don’t see the Install option in System Preferences?";
 "profile_installation_page_retry_button" = "Try Again";
 "profile_installation_page_restart_label" = "If the installation option is still missing, this is caused by a known issue with macOS. Click “Start Over” to go to the beginning of the enrollment process.";
 "profile_installation_page_restart_button" = "Start Over";
+
+// MARK: - Profile installation page - Ventura
+"profile_installation_page_button_ventura" = "Open System Settings";
+"profile_installation_page_body_ventura" = "To continue with enrollment, open System Settings below, double-click on the <COMPANY NAME> Management Profile and select \"Install\"";
+"profile_installation_page_alert_informative_text_ventura" = "Please make sure you've installed in \"System Settings\" -> \"General\" -> \"Profiles\" the downloaded configuration profile and then click \"Continue\".";
+"profile_installation_page_retry_label_ventura" = "Don’t see the Install option in System Settings?";
 
 // MARK: - Waiting page
 "waiting_page_title" = "Enrollment in progress...";
@@ -39,7 +45,7 @@
 "waiting_page_alert_informative_text" = "Please contact the <HELP>.";
 "waiting_page_alert_button" = "Quit";
 
-// MARK: - Error occured alert
+// MARK: - Error occurred alert
 "error_alert_title" = "An error occurred";
 "error_alert_informative_text" = "Please start over the process. If the error persists contact the <HELP>.";
 "error_alert_button" = "Start over";
@@ -49,13 +55,19 @@
 "warning_alert_informative_text" = "We encountered some network problems. Please check your internet connection and then hit Continue.";
 "warning_alert_button" = "Continue";
 
-// MARK: - Old app problem warning alert
+// MARK: - Old app warning alert
 "old_app_warning_alert_title" = "Attention";
 "old_app_warning_alert_informative_text" = "<APP NAME> is out of date. Click Go to be redirected to the download page of the latest version.";
 "old_app_warning_alert_button" = "Go";
 
-// MARK: - Old app problem warning alert
+// MARK: - Failed check warning alert
 "failed_check_warning_alert_title" = "Attention";
 "failed_check_warning_alert_informative_text" = "Unable to check for updates to <APP NAME>. Click Continue to move forward with the current version. Click Download Latest to be redirected to the download page and restart the process.";
 "failed_check_warning_alert_button_continue" = "Continue";
 "failed_check_warning_alert_button_check" = "Download Latest";
+
+// MARK: - Profile check alert
+"management_check_alert_title" = "Attention";
+"management_check_alert_message_enrolled_generic" = "This computer is already registered with <COMPANY NAME>. If you are experiencing issues with the <COMPANY NAME> App Store, contact IT Support for assistance.";
+"management_check_alert_message_enrolled_company" = "An existing Management Profile from another organization has been found. It must be removed before proceeding. If you are having issues, contact IT support for assistance.";
+"management_check_alert_main_button_enrolled" = "Close";

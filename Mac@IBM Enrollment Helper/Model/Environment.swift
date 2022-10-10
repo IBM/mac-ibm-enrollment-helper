@@ -24,9 +24,9 @@ private struct Configuration {
     
     /// Boolean value that defines whether to run the app version check on the welcome page or not.
     /// If false you can ignore the other 'Artifcatory configuration' parameters.
-    static let testIsAppVersionCheckEnabled: Bool = false
-    static let qaIsAppVersionCheckEnabled: Bool = false
-    static let prodIsAppVersionCheckEnabled: Bool = false
+    static let testAreStartupChecksEnabled: Bool = false
+    static let qaAreStartupChecksEnabled: Bool = false
+    static let prodAreStartupChecksEnabled: Bool = false
     /// The remote installer file name for version checking (ex. Enrollment Helper.dmg)
     static let testRemoteFileName: String = ""
     static let qaRemoteFileName: String = ""
@@ -50,6 +50,10 @@ private struct Configuration {
     static let testDefaultProfileFileName: String = "enrollmentProfile.mobileconfig"
     static let qaDefaultProfileFileName: String = "enrollmentProfile.mobileconfig"
     static let prodDefaultProfileFileName: String = "enrollmentProfile.mobileconfig"
+    /// Default enrollment profile name
+    static let testDefaultManagementProfileName: String = "Company Management Profile"
+    static let qaDefaultManagementProfileName: String = "Company Management Profile"
+    static let prodDefaultManagementProfileName: String = "Company Management Profile"
     /// Self Service app custom path
     static let testAppStorePath: String = "/Applications/Some App Store.app"
     static let qaAppStorePath: String = "/Applications/Some App Store.app"
@@ -125,7 +129,7 @@ enum Environment: String {
             return Configuration.prodIgnoreRosettaInstallation
         }
     }
-    var isAppVersionCheckEnabled: Bool {
+    var areStartupChecksEnabled: Bool {
         guard URL(string: self.artifactoryURLString) != nil &&
                 !self.remoteFileName.isEmpty &&
                 URL(string: self.versionCheckFailedRedirectURLString) != nil else {
@@ -133,11 +137,11 @@ enum Environment: String {
                 }
         switch self {
         case .test:
-            return Configuration.testIsAppVersionCheckEnabled
+            return Configuration.testAreStartupChecksEnabled
         case .qa:
-            return Configuration.qaIsAppVersionCheckEnabled
+            return Configuration.qaAreStartupChecksEnabled
         case .prod:
-            return Configuration.prodIsAppVersionCheckEnabled
+            return Configuration.prodAreStartupChecksEnabled
         }
     }
     var remoteFileName: String {
@@ -188,6 +192,16 @@ enum Environment: String {
             return Configuration.qaDefaultProfileFileName
         case .prod:
             return Configuration.prodDefaultProfileFileName
+        }
+    }
+    var managementProfileName: String {
+        switch self {
+        case .test:
+            return Configuration.testDefaultManagementProfileName
+        case .qa:
+            return Configuration.qaDefaultManagementProfileName
+        case .prod:
+            return Configuration.prodDefaultManagementProfileName
         }
     }
     var appstorePath: String {

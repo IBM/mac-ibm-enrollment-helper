@@ -32,6 +32,8 @@
 		B9919FFB2655069500FB31D6 /* WKWebView-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9919FFA2655069500FB31D6 /* WKWebView-Extension.swift */; };
 		B9BB084A25827201006F7F91 /* HelperError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BB084925827201006F7F91 /* HelperError.swift */; };
 		B9C0752C25FFD0FA0039FDF4 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9C0752425FF8CAF0039FDF4 /* WebKit.framework */; };
+		FDB8289528EDB2F700DC4DB3 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB8289428EDB2F700DC4DB3 /* Utils.swift */; };
+		FDB8289728EDCC6700DC4DB3 /* DeviceManagementState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB8289628EDCC6700DC4DB3 /* DeviceManagementState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +65,8 @@
 		B9919FFA2655069500FB31D6 /* WKWebView-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WKWebView-Extension.swift"; sourceTree = "<group>"; };
 		B9BB084925827201006F7F91 /* HelperError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperError.swift; sourceTree = "<group>"; };
 		B9C0752425FF8CAF0039FDF4 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		FDB8289428EDB2F700DC4DB3 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		FDB8289628EDCC6700DC4DB3 /* DeviceManagementState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceManagementState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,7 +111,6 @@
 			isa = PBXGroup;
 			children = (
 				B96CD3F8257E21BE00302585 /* AppDelegate.swift */,
-				B96CD49225812BA200302585 /* Environment.swift */,
 				B96CD46C257E9ECE00302585 /* Extension */,
 				B96CD4A525825F1D00302585 /* Controllers */,
 				B96CD457257E95CA00302585 /* Model */,
@@ -137,6 +140,8 @@
 			isa = PBXGroup;
 			children = (
 				B9167FB92707472400275CEA /* Gyb */,
+				B96CD49225812BA200302585 /* Environment.swift */,
+				FDB8289628EDCC6700DC4DB3 /* DeviceManagementState.swift */,
 				B96CD458257E95E600302585 /* CrossfadeStoryboardSegue.swift */,
 				B96CD49A25825EF700302585 /* EnrollmentProfile.swift */,
 				B9BB084925827201006F7F91 /* HelperError.swift */,
@@ -149,6 +154,7 @@
 			children = (
 				B96CD3FC257E21C700302585 /* Assets.xcassets */,
 				B96CD468257E9DDA00302585 /* Localizable.strings */,
+				FDB8289428EDB2F700DC4DB3 /* Utils.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -207,11 +213,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B96CD41B257E21C700302585 /* Build configuration list for PBXNativeTarget "Mac@IBM Enrollment Helper" */;
 			buildPhases = (
-				B96387EA26B1D1A100E19204 /* ShellScript */,
+				B96387EA26B1D1A100E19204 /* Loading Secrets */,
 				B96CD3F1257E21BE00302585 /* Sources */,
 				B96CD3F2257E21BE00302585 /* Frameworks */,
 				B96CD3F3257E21BE00302585 /* Resources */,
-				B96CD42D257E221A00302585 /* ShellScript */,
+				B96CD42D257E221A00302585 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -270,7 +276,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		B96387EA26B1D1A100E19204 /* ShellScript */ = {
+		B96387EA26B1D1A100E19204 /* Loading Secrets */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -280,6 +286,7 @@
 			inputPaths = (
 				"$(PROJECT_DIR)/Mac@IBM Enrollment Helper/Model/Gyb/Secrets.swift.gyb",
 			);
+			name = "Loading Secrets";
 			outputFileListPaths = (
 			);
 			outputPaths = (
@@ -289,7 +296,7 @@
 			shellPath = /bin/sh;
 			shellScript = "# Checking if the shared secrets are already been set (ex. Jenkins builds) and if not load them from the keychain.\nif [ -z ${PROD_JSS_AUTH+x} ]; then\n    echo \"Loading secrets from Keychain\"\n    export TEST_JSS_AUTH=$(security find-generic-password -w -s EH_TEST_JSS_AUTH)\n    export QA_JSS_AUTH=$(security find-generic-password -w -s EH_QA_JSS_AUTH)\n    export PROD_JSS_AUTH=$(security find-generic-password -w -s EH_PROD_JSS_AUTH)\n    export ARTIFACTORY_API_KEY=$(security find-generic-password -w -s EH_ARTIFACTORY_API_KEY)\nfi\n\n# Creating .swift files from .gyb templates using the loaded secrets.\nfor INPUT_FILE in ${!SCRIPT_INPUT_FILE_*}; do\n    FILE=${!INPUT_FILE}\n    if [ ${FILE: -4} == \".gyb\" ]; then\n        \"${PROJECT_DIR}/Gyb/gyb\" --line-directive '' -o \"${FILE%.gyb}\" \"$FILE\"\n    fi\ndone\n";
 		};
-		B96CD42D257E221A00302585 /* ShellScript */ = {
+		B96CD42D257E221A00302585 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
@@ -299,13 +306,14 @@
 			);
 			inputPaths = (
 			);
+			name = SwiftLint;
 			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "#Support for M1 Macs Homebrew location\nexport PATH=\"$PATH:/opt/homebrew/bin\"\n\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -318,6 +326,7 @@
 				B96CD43F257E2B9500302585 /* LoginAndDownloadViewController.swift in Sources */,
 				B9919FFB2655069500FB31D6 /* WKWebView-Extension.swift in Sources */,
 				B96CD4A025825EF700302585 /* ComputerInvitationResponse.swift in Sources */,
+				FDB8289728EDCC6700DC4DB3 /* DeviceManagementState.swift in Sources */,
 				B96CD4A925825F1D00302585 /* CMSDecoder-Extension.swift in Sources */,
 				B96CD453257E94C600302585 /* SubViewController.swift in Sources */,
 				B96CD3FB257E21BE00302585 /* RosettaViewController.swift in Sources */,
@@ -331,6 +340,7 @@
 				B96CD44E257E86DF00302585 /* WelcomePageViewController.swift in Sources */,
 				B96CD4A825825F1D00302585 /* RestClient.swift in Sources */,
 				B96CD3F9257E21BE00302585 /* AppDelegate.swift in Sources */,
+				FDB8289528EDB2F700DC4DB3 /* Utils.swift in Sources */,
 				B96CD46E257E9EE800302585 /* String-Extension.swift in Sources */,
 				B96387F026B1D47600E19204 /* Secrets.swift in Sources */,
 				B96CD49325812BA200302585 /* Environment.swift in Sources */,
@@ -393,6 +403,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 54;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -410,13 +421,15 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.5.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
@@ -454,6 +467,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 54;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -465,12 +479,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.5.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
 		};
@@ -484,7 +500,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 40;
+				CURRENT_PROJECT_VERSION = 54;
 				DEVELOPMENT_TEAM = Q7W47GFKL3;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "Mac@IBM Enrollment Helper/Info.plist";
@@ -493,7 +509,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				MARKETING_VERSION = 1.3.0;
+				MARKETING_VERSION = 1.5.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.company.mac-enrollment-helper";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -512,7 +528,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 40;
+				CURRENT_PROJECT_VERSION = 54;
 				DEVELOPMENT_TEAM = Q7W47GFKL3;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "Mac@IBM Enrollment Helper/Info.plist";
@@ -521,7 +537,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				MARKETING_VERSION = 1.3.0;
+				MARKETING_VERSION = 1.5.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.company.mac-enrollment-helper";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

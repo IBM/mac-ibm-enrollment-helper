@@ -1,0 +1,13 @@
+{
+  "data" : [
+    {
+      "filename" : "light.mov",
+      "idiom" : "universal",
+      "universal-type-identifier" : "com.apple.quicktime-movie"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
