@@ -8,6 +8,7 @@
 ![Xcode version](https://img.shields.io/badge/xcode-14-1984E5)
 ![Project version](https://img.shields.io/badge/version-1.5.1-1984E5)  
 ![macOS](https://img.shields.io/badge/os-macOS%2010.15%20+-bright%20green)  
+[![OpenSSF Best Practices](https://bestpractices.coreinfrastructure.org/projects/6852/badge)](https://bestpractices.coreinfrastructure.org/projects/6852)  
 
 ## Scope
 
