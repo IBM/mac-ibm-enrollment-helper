@@ -224,7 +224,6 @@ enum Environment: String {
             return Configuration.prodAppStoreURL
         }
     }
-    
     var artifactoryURLString: String {
         switch self {
         case .test:
@@ -233,16 +232,6 @@ enum Environment: String {
             return Configuration.qaArtifactoryURLString
         case .prod:
             return Configuration.prodArtifactoryURLString
-        }
-    }
-    var jssUserAuth: String {
-        switch self {
-        case .test:
-            return Secrets.jssUserAuthTest
-        case .qa:
-            return Secrets.jssUserAuthQA
-        case .prod:
-            return Secrets.jssUserAuthProd
         }
     }
     var environmentURL: String {

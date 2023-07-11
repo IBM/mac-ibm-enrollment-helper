@@ -153,27 +153,21 @@ final class ProfileInstallationViewController: NSViewController {
             self.performSegue(withIdentifier: "goToWaitingPage", sender: nil)
         }
         #else
-        guard let profile = self.profile else {
-            return
-        }
-        let invitationId = profile.challenge
-        RestClient.shared.checkComputerInvitation(invitationId) { response in
-            let status = response.computerInvitation.invitationStatus
-            guard status == "ENROLLMENT_COMPLETE" else {
-                guard !self.timerExpired else {
-                    self.handleError(.generic(type: .timeout))
-                    return
-                }
-                DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(5)) { [weak self] in
-                    self?.checkForProfileInstallation()
-                }
-                return
-            }
+        switch DeviceManagementState.current {
+        case .managedByOther:
+            self.handleError(.profileError(type: .deviceIsManaged))
+        case .managedByCompany:
             DispatchQueue.main.async {
                 self.performSegue(withIdentifier: "goToWaitingPage", sender: nil)
             }
-        } errorHandler: { error in
-            self.handleError(error)
+        case .unmanaged:
+            guard !self.timerExpired else {
+                self.handleError(.generic(type: .timeout))
+                return
+            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(5)) { [weak self] in
+                self?.checkForProfileInstallation()
+            }
         }
         #endif
     }
@@ -238,7 +232,7 @@ final class ProfileInstallationViewController: NSViewController {
             case .store:
                 showAlert(with: "error_alert_informative_text".localized, type: .error)
             case .deviceIsManaged:
-                break
+                showAlert(with: "error_alert_informative_text".localized, type: .error)
             }
         case .generic(let type):
             switch type {
