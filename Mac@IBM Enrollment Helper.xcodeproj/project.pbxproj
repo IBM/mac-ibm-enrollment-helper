@@ -26,7 +26,6 @@
 		B96CD46E257E9EE800302585 /* String-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96CD46D257E9EE800302585 /* String-Extension.swift */; };
 		B96CD49325812BA200302585 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96CD49225812BA200302585 /* Environment.swift */; };
 		B96CD49E25825EF700302585 /* EnrollmentProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96CD49A25825EF700302585 /* EnrollmentProfile.swift */; };
-		B96CD4A025825EF700302585 /* ComputerInvitationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96CD49C25825EF700302585 /* ComputerInvitationResponse.swift */; };
 		B96CD4A825825F1D00302585 /* RestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96CD4A625825F1D00302585 /* RestClient.swift */; };
 		B96CD4A925825F1D00302585 /* CMSDecoder-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96CD4A725825F1D00302585 /* CMSDecoder-Extension.swift */; };
 		B9919FFB2655069500FB31D6 /* WKWebView-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9919FFA2655069500FB31D6 /* WKWebView-Extension.swift */; };
@@ -59,7 +58,6 @@
 		B96CD46D257E9EE800302585 /* String-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String-Extension.swift"; sourceTree = "<group>"; };
 		B96CD49225812BA200302585 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		B96CD49A25825EF700302585 /* EnrollmentProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnrollmentProfile.swift; sourceTree = "<group>"; };
-		B96CD49C25825EF700302585 /* ComputerInvitationResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComputerInvitationResponse.swift; sourceTree = "<group>"; };
 		B96CD4A625825F1D00302585 /* RestClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestClient.swift; sourceTree = "<group>"; };
 		B96CD4A725825F1D00302585 /* CMSDecoder-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CMSDecoder-Extension.swift"; sourceTree = "<group>"; };
 		B9919FFA2655069500FB31D6 /* WKWebView-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WKWebView-Extension.swift"; sourceTree = "<group>"; };
@@ -192,7 +190,6 @@
 		B96CD4BD2582621E00302585 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				B96CD49C25825EF700302585 /* ComputerInvitationResponse.swift */,
 				B95C7B05270DAE5900C2FD20 /* ArtifactoryResponse.swift */,
 			);
 			path = Model;
@@ -234,8 +231,9 @@
 		B96CD3ED257E21BD00302585 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1220;
-				LastUpgradeCheck = 1230;
+				LastUpgradeCheck = 1430;
 				ORGANIZATIONNAME = IBM;
 				TargetAttributes = {
 					B96CD3F4257E21BE00302585 = {
@@ -325,7 +323,6 @@
 				B96CD444257E2D3300302585 /* ProfileInstallationViewController.swift in Sources */,
 				B96CD43F257E2B9500302585 /* LoginAndDownloadViewController.swift in Sources */,
 				B9919FFB2655069500FB31D6 /* WKWebView-Extension.swift in Sources */,
-				B96CD4A025825EF700302585 /* ComputerInvitationResponse.swift in Sources */,
 				FDB8289728EDCC6700DC4DB3 /* DeviceManagementState.swift in Sources */,
 				B96CD4A925825F1D00302585 /* CMSDecoder-Extension.swift in Sources */,
 				B96CD453257E94C600302585 /* SubViewController.swift in Sources */,
@@ -403,7 +400,8 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 54;
+				CURRENT_PROJECT_VERSION = 56;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -422,7 +420,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				MARKETING_VERSION = 1.5.1;
+				MARKETING_VERSION = 1.6.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -467,7 +465,8 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 54;
+				CURRENT_PROJECT_VERSION = 56;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -480,7 +479,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				MARKETING_VERSION = 1.5.1;
+				MARKETING_VERSION = 1.6.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
@@ -500,7 +499,8 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 54;
+				CURRENT_PROJECT_VERSION = 56;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = Q7W47GFKL3;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "Mac@IBM Enrollment Helper/Info.plist";
@@ -509,7 +509,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				MARKETING_VERSION = 1.5.1;
+				MARKETING_VERSION = 1.6.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.company.mac-enrollment-helper";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -528,7 +528,8 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 54;
+				CURRENT_PROJECT_VERSION = 56;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = Q7W47GFKL3;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "Mac@IBM Enrollment Helper/Info.plist";
@@ -537,7 +538,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				MARKETING_VERSION = 1.5.1;
+				MARKETING_VERSION = 1.6.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.company.mac-enrollment-helper";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
