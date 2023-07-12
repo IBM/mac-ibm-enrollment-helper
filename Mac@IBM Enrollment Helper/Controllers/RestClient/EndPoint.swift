@@ -103,18 +103,12 @@ extension Endpoint: CaseIterable {
     static private let baseJSSUrl = Endpoint(string: Environment.current.environmentURL)
     static private let baseArtifactoryURL = Endpoint(string: Environment.current.artifactoryURLString)
     
-    // MARK: - JSS Endpoints
-        
-    static private let jssResource = Endpoint(string: "JSSResource/", relativeTo: baseJSSUrl)
-    static private let computerInvitations = Endpoint(string: "computerinvitations/", relativeTo: jssResource)
-    static let invitation = Endpoint(string: "invitation/", relativeTo: computerInvitations)
-    
     // MARK: - Artifactory Endpoints
     
     static let properties = Endpoint(string: Environment.current.remoteFileName.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)! + "?properties", relativeTo: baseArtifactoryURL)
     
     /// Useful for tests purposes
     static var allCases: [Endpoint] {[
-        .invitation, properties
+        .properties
     ]}
 }

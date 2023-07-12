@@ -1,4 +1,4 @@
-///
+//
 //  LoginAndDownloadViewController.swift
 //  Mac@IBM Enrollment Helper
 //
