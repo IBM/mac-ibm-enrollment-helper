@@ -4,9 +4,9 @@
 ![CI](https://github.com/IBM/mac-ibm-notifications/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/IBM/mac-ibm-notifications/actions/workflows/main.yml)
 ]-->
 ![License](https://img.shields.io/badge/license-Apache%202-1984E5)
-![Swift version](https://img.shields.io/badge/swift-5-1984E5)
-![Xcode version](https://img.shields.io/badge/xcode-14-1984E5)
-![Project version](https://img.shields.io/badge/version-1.5.1-1984E5)  
+![Swift version](https://img.shields.io/badge/swift-5.8.1-1984E5)
+![Xcode version](https://img.shields.io/badge/xcode-14.3.1-1984E5)
+![Project version](https://img.shields.io/badge/version-1.6.0-1984E5)  
 ![macOS](https://img.shields.io/badge/os-macOS%2010.15%20+-bright%20green)  
 [![OpenSSF Best Practices](https://bestpractices.coreinfrastructure.org/projects/6852/badge)](https://bestpractices.coreinfrastructure.org/projects/6852)  
 
